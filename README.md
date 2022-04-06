@@ -9,7 +9,7 @@ This is a plugin that make us be able to describe parts of a picture
 2. Open block context menu.
 3. Click **Picture to Areas**.
 ## About Editor
-Keyboard Shortcuts
+### Keyboard Shortcuts
 + 1, 2, 3 : mode transform
 + A : add something
 + Shift : use a hand-tool
@@ -17,9 +17,9 @@ Keyboard Shortcuts
 + Ctrl + Z : undo
 + Ctrl + Y : redo
 + Esc : cancel
-Mouse
+### Mouse
 + left : drag point
-+ rigjt : delete something in canvas
++ right : delete something in canvas
 + wheel : zoom in & zoom out
 ## Properties
 + area : Conceptually connect a block and an area.
