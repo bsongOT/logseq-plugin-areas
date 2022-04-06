@@ -26,6 +26,6 @@ This is a plugin that make us be able to describe parts of a picture
 + area-page : Conceptually connect a page and an area.
 # Terms
 + area : The largest unit that can be viewed as one
-+ shape : The mass of area
++ shape : The lump that make up an area
 + point : The point that determines the form of shapes
 # Examples
