@@ -21,12 +21,11 @@ This is a plugin that make us be able to describe parts of a picture
 + left : drag point
 + right : delete something in canvas
 + wheel : zoom in & zoom out
-## Properties
+# Properties
 + area : Conceptually connect a block and an area.
 + area-page : Conceptually connect a page and an area.
-## Terms
-
-### area : The largest unit that can be viewed as one
-### shape : The mass of area
-### point : The point that determines the form of shapes
-## Examples
+# Terms
++ area : The largest unit that can be viewed as one
++ shape : The mass of area
++ point : The point that determines the form of shapes
+# Examples
