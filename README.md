@@ -53,8 +53,8 @@ Press the edit button as follows:
 
 # Note
 1. When you want to add a piece.
-  1-1. To add a shape, select an area.
-  1-2. To add a point, select an shape.
+  + To add a shape, select an area.
+  + To add a point, select an shape.
 2. Don't cancel it carelessly. No additional warnings are issued when attempting to cancel.
 
 # Examples \[Will Be Added\]
