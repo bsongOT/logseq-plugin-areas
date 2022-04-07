@@ -46,7 +46,7 @@ Press the edit button as follows:
 # Terms
 + piece : A word that combines area, shape, and point
 + area : The largest unit that can be viewed as one
-+ shape : The lump that make up an area
++ shape : The lump that makes up an area
 + point : The point that determines the form of shapes
 + mode : An indicator of what to add or remove
 + hierarchy : A place for selecting changing name and color of areas
