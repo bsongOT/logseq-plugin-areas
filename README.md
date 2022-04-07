@@ -54,13 +54,13 @@ Press the edit button as follows:
 # Tips
 1. if you want to resize image in the area block, try this in block:
 
-  `{{renderer :areas-blabla, path}}` → `{{renderer :areas-blabla, path, <width>, <height>}}`
+> `{{renderer :areas-blabla, path}}` → `{{renderer :areas-blabla, path, <width>, <height>}}`
 
 height is optional.
 
 2. if you want to change the thickness of the line, try this:
 
-  `⋯` > `Plugins` > `Areas` > `⚙️` > `Open settings`
+> `⋯` > `Plugins` > `Areas` > `⚙️` > `Open settings`
 
 # Notes
 1. When you want to add a piece.
