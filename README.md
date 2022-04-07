@@ -69,3 +69,12 @@ height is optional.
 2. Don't cancel it carelessly. No additional warnings are issued when attempting to cancel.
 
 # Examples \[Will Be Added\]
+
+# Sources
+<a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Pixel perfect - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/view" title="view icons">View icons created by Andrean Prabowo - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/visible" title="visible icons">Visible icons created by uicon - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/save" title="save icons">Save icons created by Freepik - Flaticon</a>
