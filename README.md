@@ -17,7 +17,7 @@ Please see below for details.
 ## (2) Register an Area Block
 1. Put a picture in a block.
 2. Open block context menu.
-3. Click **Picture to Areas**.
+3. Click `Picture to Areas`.
 ## (3) Edit Areas as You Wish.
 Refer to [About Editor](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#about-editor)
 ## (4) Click a Visiblity Button \[Optional\]
@@ -51,10 +51,17 @@ Press the edit button as follows:
 + mode : An indicator of what to add or remove
 + hierarchy : A place for selecting changing name and color of areas
 
-# Note
+# Tips
+1. if you want to resize image in the area block, try this in block:
+`{{renderer :areas-blabla, path}}` → `{{renderer :areas-blabla, path, <width>, <height>}}`
+height is optional.
+2. if you want to change the thickness of the line, try this:
+`⋯` > `Plugins` > `Areas` > `⚙️` > `Open settings`
+
+# Notes
 1. When you want to add a piece.
-  + To add a shape, select an area.
-  + To add a point, select an shape.
++ To add a shape, select an area.
++ To add a point, select an shape.
 2. Don't cancel it carelessly. No additional warnings are issued when attempting to cancel.
 
 # Examples \[Will Be Added\]
