@@ -1,0 +1,12 @@
+{
+  "name": "areas",
+  "version": "1.0.0",
+  "logseq": {
+    "title": "Areas",
+    "main": "index.html",
+    "id": "_myhoz46x9"
+  },
+  "dependencies": {
+    "@logseq/libs": "0.0.1-alpha.35"
+  }
+}

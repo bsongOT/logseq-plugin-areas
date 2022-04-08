@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>areas window</title>
+  <script src="https://cdn.jsdelivr.net/npm/@logseq/libs" type="module"></script>
+  <script src="constants.js"></script>
+  <script src="parser.js"></script>
+  <script src="utils.js"></script>
+  <script src="datas.js"></script>
+  <script src="area.js"></script>
+  <script src="window.js"></script>
+  <script src="index.js" type="module"></script>
+  <link rel="stylesheet" href="window.css">
+</head>
+<body id="areaEditWindowBody">
+  <div class="mainwindow">
+    <div class="hierarchy" id="lpa-hierarchy">
+    </div>
+    <canvas id="lpa-canvas" width="500" height="500"></canvas>
+    <label id="lpa-point-mode-select" onclick="toPointMode()">
+      <input id="lpa-point-mode" type="radio" name="mode" checked>
+      <img src="icons/point.png">
+    </label>
+    <label id="lpa-shape-mode-select" onclick="toShapeMode()">
+      <input id="lpa-shape-mode" type="radio" name="mode">
+      <img src="icons/shape.png">
+    </label>
+    <label id="lpa-area-mode-select" onclick="toAreaMode()">
+      <input id="lpa-area-mode" type="radio" name="mode">
+      <img src="icons/area.png">
+    </label>
+    <label id="lpa-hand-tool-use" onclick="useHandTool(!this.children[0].checked)">
+      <input id="lpa-hand-tool" type="checkbox">
+      <img src="icons/handtool.png">
+    </label>
+    <button class="save" id="lpa-save-button" type="button" onclick="save()"><img src="icons/save.png" alt="save"></button>
+    <button class="undo" id="lpa-undo-button" type="button" onclick="undo()"><img src="icons/undo.png" alt="undo"></button>
+    <button class="redo" id="lpa-redo-button" type="button" onclick="redo()"><img src="icons/redo.png" alt="redo"></button>
+    <button class="confirm" type="button" onclick="confirm()">Confirm</button>
+    <button class="cancel" type="button" onclick="cancel()">Cancel</button>
+  </div>
+  <script src="customUI.js"></script>
+</body>
+</html>
