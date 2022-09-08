@@ -22,13 +22,15 @@ Please see below for details.
 Refer to [About Editor](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#about-editor)
 ## (4) Click a Visiblity Button \[Optional\]
 To see only the area you select, click this:
+## (5) Set a property in the block or the page you want to connect the area.
+## (6) Click the area you want.
 
 # About Editor
 ## Enter the Editor
 Press the edit button as follows:
 ## Keyboard Shortcuts
-+ 1, 2, 3 : mode transform
-+ A : add a piece
++ 1, 2, 3 : change mode
++ Q, W, E, R : change tool
 + Shift : use a hand-tool
 + Ctrl + S : save
 + Ctrl + Z : undo
@@ -40,7 +42,7 @@ Press the edit button as follows:
 + wheel : zoom in & zoom out
 
 # Properties
-+ area : Conceptually connect a block and an area.
++ area-block : Conceptually connect a block and an area.
 + area-page : Conceptually connect a page and an area.
 
 # Terms
@@ -78,3 +80,5 @@ height is optional.
 <a href="https://www.flaticon.com/free-icons/visible" title="visible icons">Visible icons created by uicon - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/save" title="save icons">Save icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/trash" title="trash icons">Trash icons created by Freepik - Flaticon</a>
