@@ -31,15 +31,15 @@ Through `Load unpacked plugin`
 ![register](./images/2.png)
 
 ## (3) Edit Areas as You Wish.
-Refer to [About Editor](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#about-editor)
+Refer to [About Editor](#about-editor)
 ## (4) Click a Visiblity Button. \[Optional\]
 To see only the area you select, click this:
 
 ![visiblity](./images/3.png)
 
-## (5) Set a [property](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#properties).
+## (5) Set a [property](#properties).
 ## (6) Click the area you want.
-## (7) Change the [settings](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#settings) to your liking. \[Optional\]
+## (7) Change the [settings](#settings) to your liking. \[Optional\]
 
 # About Editor
 
