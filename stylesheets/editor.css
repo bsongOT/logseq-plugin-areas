@@ -1,0 +1,303 @@
+#lpa-editor {
+    background-color: #73737386;
+}
+div.mainwindow{
+    position: fixed;
+    left: calc(50% - 420px);
+    top: calc(50% - 270px);
+    width: 840px;
+    height: 540px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px grey;
+    border-radius: 10px;
+}
+div.hierarchy {
+    width: 270px;
+    height: 460px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 5px grey;
+    overflow: auto;
+}
+div.order{
+    position: absolute;
+    display: flex;
+    top: 490px;
+    left: 20px;
+}
+div.order > button{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-right: none;
+    padding: 3px;
+    background-color: white;
+    background-blend-mode: multiply;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    transition: 0.3s;
+}
+div.order > button:first-child{
+    border-radius: 5px 0 0 5px;
+}
+div.order > button:last-child{
+    border-right: 1px solid #bbb;
+    border-radius: 0 5px 5px 0;
+}
+div.order > button:hover{
+    background-color: rgb(176, 223, 255);
+}
+canvas{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    box-shadow: 0 0 20px grey;
+}
+canvas.usingAddTool{
+    cursor: copy;
+}
+canvas.usingDeleteTool{
+    cursor: no-drop;
+}
+canvas.usingHandTool{
+    cursor: grab;
+}
+canvas.usingHandTool:active{
+    cursor: grabbing;
+}
+.accordion {
+    position: relative;
+    background-color: #eee;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #444;
+    padding: 0;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    min-height: 36px;
+    transition: 0.4s;
+    width: 100%;
+}
+.accordion > .accLabel{
+    display: block;
+    padding: 8px;
+}
+.accordion > .accLabel > .areaNameText{
+    width: 175px;
+    user-select: none;
+}
+.shapeitem > .shapeNameText{
+    width: 195px;
+    user-select: none;
+}
+.accordion > div[contentEditable="false"], .shapeitem > div[contentEditable="false"]{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.accordion > input[type="color"]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: none;
+    border: none;
+    padding: 4px 6px;
+    width: 36px;
+    height: 36px;
+}
+.active, .accordion:hover {
+    background-color: #aaa;
+}
+.shapesMenu {
+    width: 100%;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.2s;
+    user-select: none;
+}
+.shapesMenu > .shapeitem{
+    display: block;
+    position: relative;
+    background-color: #eee;
+    color: #444;
+    padding: 6px 22px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+.shapesMenu > .item-active, .shapesMenu > .shapeitem:hover {
+    background-color: #ccc;
+}
+button.editName, button.editShapeName{
+    position: absolute;
+    top: 7px;
+    right: 60px;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border: none;
+    background: none;
+    opacity: 1;
+    transition: 0.4s;
+    user-select: none;
+}
+button.editShapeName{
+    top: 5px;
+    right: 30px;
+}
+button.editName > img, button.editShapeName > img{
+    width: 16px;
+    height: 16px;
+}
+button.deleteAcc, button.deleteShape{
+    position: absolute;
+    top: 7px;
+    padding: 0;
+    right: 35px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: none;
+    user-select: none;
+}
+button.deleteShape{
+    top: 5px;
+    right: 5px;
+}
+button.deleteAcc > img, button.deleteShape > img{
+    width: 20px;
+    height: 20px;
+}
+button.editName:disabled{
+    opacity: 0;
+    pointer-events: none;
+}
+input[type="radio"]{
+    display: none;
+} 
+input[type="radio"]:checked + label{
+   filter: brightness(80%);
+}
+#lpa-mode-container{
+    display: inline-block;
+    position: absolute;
+    right: -50px;
+}
+.lpa-mode{
+    display: flex;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#lpa-point-mode-select{
+	border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #ccc;
+}
+#lpa-shape-mode-select{
+    border-bottom: 1px solid #ccc;
+}
+#lpa-area-mode-select{
+	border-radius: 0 0 10px 10px;
+}
+input[type="checkbox"]{
+    display: none;
+}
+input[type="checkbox"]:checked + label{
+    filter: brightness(80%);
+}
+#lpa-tool-container{
+	position: absolute;
+    right: -50px;
+    top: 200px;
+}
+.lpa-tool{
+    display: flex;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#lpa-select-tool-use{
+	border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #ccc;
+}
+#lpa-add-tool-use{
+    border-bottom: 1px solid #ccc;
+}
+#lpa-delete-tool-use{
+    border-bottom: 1px solid #ccc;
+}
+#lpa-hand-tool-use{
+	border-radius: 0 0 10px 10px;
+}
+#lpa-bottom-left-container{
+    display: flex;
+    position: absolute;
+    top: 550px;
+}
+#lpa-bottom-left-container > button{
+    border-radius: 10px;
+    border: 0;
+    padding: 8px;
+    transition: 0.3s;
+    font-size: 18px;
+    margin-right: 10px;
+}
+#lpa-bottom-left-container > button > img{
+    width: 24px;
+    height: 24px;
+}
+#lpa-bottom-right-container{
+    display: flex;
+    position: absolute;
+    top: 550px;
+    right: 0;
+}
+#lpa-bottom-right-container > button{
+    border-radius: 10px;
+    border: 0;
+    padding: 8px;
+    transition: 0.3s;
+    font-size: 18px;
+    margin-left: 10px;
+}
+button.save, button.undo, button.redo{
+    width: 40px;
+    height: 40px;
+}
+button.save:hover:enabled, button.undo:hover:enabled, button.redo:hover:enabled{
+    background-color: rgb(126, 203, 255);
+}
+button.cancel{
+    width: 110px;
+    height: 40px;
+    background-color: rgb(196, 26, 4);
+    color: white;
+}
+button.cancel:hover {
+    background-color: rgb(196, 87, 73);
+}
+button.confirm{
+    width: 110px;
+    height: 40px;
+    background-color: rgb(26, 182, 26);
+    color: white;
+}
+button.confirm:hover {
+    background-color: rgb(120, 182, 120);
+}

@@ -1,10 +1,11 @@
 logseq.useSettingsSchema(defaultSettings);
 
 function main () {
-    const settings = {
+    let settings = {
         strokesWidth: Math.max(1, Math.min(Number(logseq.settings.strokesWidth), 10)),
         strokesOutline: Math.max(1, Math.min(Number(logseq.settings.strokesOutline), 5)),
-        controlPointRadius: Math.max(0, Math.min(Number(logseq.settings.controlPointRadius), 10))
+        controlPointRadius: Math.max(0, Math.min(Number(logseq.settings.controlPointRadius), 10)),
+        scrollDirection: logseq.settings.scrollDirection === "↑" ? 1 : -1
     };
 
     const replaceWithAreas = (uuid, content, path) => {
@@ -61,7 +62,7 @@ function main () {
             }
 
             logseq.provideUI({
-                key: uiid,
+                key: uiid + slot.slice(5), //for case: block is open simultaneously on the sidebar and body.
                 slot,
                 reset: true,
                 template:             
@@ -92,33 +93,27 @@ function main () {
                         openEditWindow({uuid: bl.uuid}, blockDatas.userContent, imgSrc, blockDatas.areas);
                     });
                 },
-                selectArea(_triggerInfo)
+                async selectArea(_triggerInfo)
                 {
-                    const areaName = _triggerInfo.id.split("-")[1];
+                    const areaName = await _triggerInfo.id.split("-")[1];
                     const selected = `${_triggerInfo.id.split("-")[0]}-${areaName}`;
-                    
-                    logseq.DB.datascriptQuery(queryForPageProperty(areaName)).then(result => {
-                        if (result.length >= 1){
-                            logseq.App.pushState('page', {
-                                name: result[0][0].name
-                            });
-                            return;
-                        }
-                        logseq.Editor.getBlock(_triggerInfo.dataset.areaBlock, {includeChildren: true}).then((bl)=>{
-                            logseq.Editor.updateBlock(bl.uuid, parser.changeSelect(bl.content, selected));
-                            logseq.DB.datascriptQuery(queryForProperty(areaName)).then((result)=>{
-                                let desc = "#Area-Description\n";
-                                for (let i = 0; i < result.length; i++){
-                                    desc += `{{embed ((${result[i][0].uuid.$uuid$}))}}\n`;
-                                }
-                                
-                                let descIndex = bl.children.map(a => a.content).findIndex(a => a.includes("#Area-Description"));
-                                                        
-                                if (descIndex !== -1) logseq.Editor.updateBlock(bl.children[descIndex].uuid, desc);
-                                else logseq.Editor.insertBatchBlock(bl.uuid, {content: desc});
-                            });
-                        });
-                    });
+                    const selBlock = await logseq.Editor.getBlock(_triggerInfo.dataset.areaBlock);
+
+                    logseq.Editor.updateBlock(selBlock.uuid, parser.changeSelect(selBlock.content, selected));
+                    //for :area-page
+                    const pages = await logseq.DB.datascriptQuery(queryForPageProperty(areaName));
+                    if (pages.length >= 1){
+                        return await logseq.App.pushState('page', {name: pages[0][0].name});
+                    }
+
+                    //for :area-block
+                    const blocks = await logseq.DB.datascriptQuery(queryForProperty(areaName));
+                    if(blocks.length >= 1){
+                        return await logseq.Editor.scrollToBlockInPage(
+                            (await logseq.Editor.getPage(blocks[0][0].page.id)).originalName,
+                            blocks[0][0].uuid
+                        );
+                    }
                 },
                 cancelSelect(_triggerInfo)
                 {
@@ -144,9 +139,13 @@ function main () {
     }
 
     const openEditWindow = (e, content, imgStr, areaDatas) => {
-        loadInfo(e.uuid, content, imgStr, areaDatas, settings);
-        loadElements();
-        draw();
+        settings = {
+            strokesWidth: Math.max(1, Math.min(Number(logseq.settings.strokesWidth), 10)),
+            strokesOutline: Math.max(1, Math.min(Number(logseq.settings.strokesOutline), 5)),
+            controlPointRadius: Math.max(0, Math.min(Number(logseq.settings.controlPointRadius), 10)),
+            scrollDirection: logseq.settings.scrollDirection === "↑" ? 1 : -1
+        };
+        prepareEditor(e.uuid, content, imgStr, areaDatas, settings);
         logseq.showMainUI();
     }
     

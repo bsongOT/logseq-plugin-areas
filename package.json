@@ -1,10 +1,11 @@
 {
   "name": "areas",
-  "version": "1.0.0",
+  "version": "v0.1.1",
   "logseq": {
     "title": "Areas",
     "main": "index.html",
-    "id": "_myhoz46x9"
+    "id": "logseq-areas",
+    "icon": "icons/icon.png"
   },
   "dependencies": {
     "@logseq/libs": "0.0.1-alpha.35"

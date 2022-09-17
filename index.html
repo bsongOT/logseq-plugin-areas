@@ -5,44 +5,106 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>areas window</title>
+  <title>areas editor</title>
   <script src="https://cdn.jsdelivr.net/npm/@logseq/libs" type="module"></script>
-  <script src="constants.js"></script>
-  <script src="parser.js"></script>
-  <script src="utils.js"></script>
-  <script src="datas.js"></script>
-  <script src="area.js"></script>
-  <script src="window.js"></script>
-  <script src="index.js" type="module"></script>
-  <link rel="stylesheet" href="window.css">
+  <script src="scripts/consts.js"></script>
+  <script src="scripts/accordionElement.js"></script>
+  <script src="scripts/icons.js"></script>
+  <script src="scripts/utils/geometry.js"></script>
+  <script src="scripts/utils/parser.js"></script>
+  <script src="scripts/utils/array.js"></script>
+  <script src="scripts/utils/string.js"></script>
+  <script src="scripts/utils/utils.js"></script>
+  <script src="scripts/data-structs/area.js"></script>
+  <script src="scripts/data-structs/workflow.js"></script>
+  <script src="scripts/editor/features.js"></script>
+  <script src="scripts/editor/editorCenterProcessor.js"></script>
+  <script src="scripts/editor/DOM/canvasDrawer.js"></script>
+  <script src="scripts/editor/DOM/DOMElementRenderer.js"></script>
+  <script src="scripts/editor/areasDataManager.js"></script>
+  <script src="scripts/editor/userInputAnalyzer.js"></script>
+  <script src="scripts/block/index.js" type="module"></script>
+  <script src="stylesheets/blockStyles.js"></script>
+  <link rel="stylesheet" href="stylesheets/editor.css">
 </head>
-<body id="areaEditWindowBody">
+<body id="lpa-editor">
   <div class="mainwindow">
     <div class="hierarchy" id="lpa-hierarchy">
     </div>
+    <div class="order">
+       <button class="area-up" type="button" style="background-image: url('icons/areaup.png');"
+               onclick="ECP.report('changeOrder', new ChangeOrder('done', ECP.selection.index, 'area', -1, true))"
+               title="Moves the order of selected area 1 up.">
+       </button>
+       <button class="area-down" type="button" style="background-image: url('icons/areadown.png');"
+               onclick="ECP.report('changeOrder', new ChangeOrder('done', ECP.selection.index, 'area', 1, true))"
+               title="Moves the order of selected area 1 down.">
+       </button>
+       <button class="shape-up" type="button" style="background-image: url('icons/shapeup.png');"
+               onclick="ECP.report('changeOrder', new ChangeOrder('done', ECP.selection.index, 'shape', -1, true))"
+               title="Moves the order of selected shape 1 up.">
+       </button>
+       <button class="shape-down" type="button" style="background-image: url('icons/shapedown.png');"
+               onclick="ECP.report('changeOrder', new ChangeOrder('done', ECP.selection.index, 'shape', 1, true))"
+               title="Moves the order of selected shape 1 down.">
+       </button>
+    </div>
     <canvas id="lpa-canvas" width="500" height="500"></canvas>
-    <label id="lpa-point-mode-select" onclick="toPointMode()">
-      <input id="lpa-point-mode" type="radio" name="mode" checked>
-      <img src="icons/point.png">
-    </label>
-    <label id="lpa-shape-mode-select" onclick="toShapeMode()">
-      <input id="lpa-shape-mode" type="radio" name="mode">
-      <img src="icons/shape.png">
-    </label>
-    <label id="lpa-area-mode-select" onclick="toAreaMode()">
-      <input id="lpa-area-mode" type="radio" name="mode">
-      <img src="icons/area.png">
-    </label>
-    <label id="lpa-hand-tool-use" onclick="useHandTool(!this.children[0].checked)">
-      <input id="lpa-hand-tool" type="checkbox">
-      <img src="icons/handtool.png">
-    </label>
-    <button class="save" id="lpa-save-button" type="button" onclick="save()"><img src="icons/save.png" alt="save"></button>
-    <button class="undo" id="lpa-undo-button" type="button" onclick="undo()"><img src="icons/undo.png" alt="undo"></button>
-    <button class="redo" id="lpa-redo-button" type="button" onclick="redo()"><img src="icons/redo.png" alt="redo"></button>
-    <button class="confirm" type="button" onclick="confirm()">Confirm</button>
-    <button class="cancel" type="button" onclick="cancel()">Cancel</button>
+    <div id="lpa-mode-container">
+      <input id="lpa-point-mode" type="radio" name="mode"
+             onclick="ECP.report('changeMode', new SwitchMode('point'))" checked>
+      <label class="lpa-mode" id="lpa-point-mode-select" for="lpa-point-mode"
+             title="[Mode] Set the target of the behavior to a point.">
+        <img src="icons/point.png">
+      </label>
+      <input id="lpa-shape-mode" type="radio" name="mode"
+             onclick="ECP.report('changeMode', new SwitchMode('shape'))">
+      <label class="lpa-mode" id="lpa-shape-mode-select" for="lpa-shape-mode"
+             title="[Mode] Set the target of the behavior to a shape.">
+        <img src="icons/shape.png">
+      </label>
+      <input id="lpa-area-mode" type="radio" name="mode"
+             onclick="ECP.report('changeMode', new SwitchMode('area'))">
+      <label class="lpa-mode" id="lpa-area-mode-select" for="lpa-area-mode"
+             title="[Mode] Set the target of the behavior to an area.">
+        <img src="icons/area.png">
+      </label>
+    </div>
+    <div id="lpa-tool-container">
+      <input id="lpa-select-tool" type="radio" name="tool"
+             onclick="ECP.report('changeTool', new SwitchTool('select'))" checked>
+      <label class="lpa-tool" id="lpa-select-tool-use" for="lpa-select-tool"
+             title="[Tool] Select a piece of mode.">
+        <img src="icons/selecttool.png">
+      </label>
+      <input id="lpa-add-tool" type="radio" name="tool"
+             onclick="ECP.report('changeTool', new SwitchTool('add'))">
+      <label class="lpa-tool" id="lpa-add-tool-use" for="lpa-add-tool"
+             title="[Tool] Add a piece of mode.">
+        <img src="icons/addtool.png">
+      </label>
+      <input id="lpa-delete-tool" type="radio" name="tool"
+             onclick="ECP.report('changeTool', new SwitchTool('delete'))">
+      <label class="lpa-tool" id="lpa-delete-tool-use" for="lpa-delete-tool"
+             title="[Tool] Delete a piece of mode.">
+        <img src="icons/deletetool.png">
+      </label>
+      <input id="lpa-hand-tool" type="radio" name="tool"
+             onclick="ECP.report('changeTool', new SwitchTool('hand'))">
+      <label class="lpa-tool" id="lpa-hand-tool-use" for="lpa-hand-tool"
+             title="[Tool] Move a viewpoint.">
+        <img src="icons/handtool.png">
+      </label>
+    </div>
+    <div id="lpa-bottom-left-container">
+      <button class="save" id="lpa-save-button" type="button" onclick="ECP.report('save', new Save())"><img src="icons/save.png" alt="save"></button>
+      <button class="undo" id="lpa-undo-button" type="button" onclick="ECP.report('undo', new Undo())"><img src="icons/undo.png" alt="undo"></button>
+      <button class="redo" id="lpa-redo-button" type="button" onclick="ECP.report('redo', new Redo())"><img src="icons/redo.png" alt="redo"></button>
+    </div>
+    <div id="lpa-bottom-right-container">
+       <button class="cancel" type="button" onclick="ECP.report('cancel', new Cancel())">Cancel</button>
+       <button class="confirm" type="button" onclick="ECP.report('confirm', new Confirm())">Confirm</button>
+    </div>
   </div>
-  <script src="customUI.js"></script>
 </body>
 </html>

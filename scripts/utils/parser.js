@@ -76,7 +76,7 @@ class Parser
         for (let i = 0; i < _area.shapes.length; i++){
             const shape = _area.shapes[i];
             output += `{${shape.name}=`;
-            output += shape.points.map(el => `${el.x},${el.y}`).join(" ");
+            output += shape.points.map(el => `${Math.round(10 * el.x)/10},${Math.round(10 * el.y)/10}`).join(" ");
             output += `}`;
         }
     
