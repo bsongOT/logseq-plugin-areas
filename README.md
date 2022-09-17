@@ -5,52 +5,90 @@ This plugin will be useful when you note concepts that contain a lot of visual t
 
 Please see below for details.
 
-# Demo \[Will Be Added\]
+# Demo
+
+![demo](./images/demo.gif)
 
 # How-tos
-## (1) Install the Areas Plugin. \[Not Able to Install Yet\]
+## (1) Install the Areas Plugin.
+Through Market Place \[Not Available Yet\]
+
 1. Click `⋯` in the upper right corner.
 2. Go to `Settings` > `Advanced` > `Developer mode` and enable.
 3. Exit settings.
 4. Click `⋯` again.
 5. Go to `Plugins` > `Marketplace` and install the areas plugin.
+
+Through `Load unpacked plugin`
+
+![load](./images/1.png)
+
 ## (2) Register an Area Block
 1. Put a picture in a block.
 2. Open block context menu.
 3. Click `Picture to Areas`.
+
+![register](./images/2.png)
+
 ## (3) Edit Areas as You Wish.
 Refer to [About Editor](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#about-editor)
-## (4) Click a Visiblity Button \[Optional\]
+## (4) Click a Visiblity Button. \[Optional\]
 To see only the area you select, click this:
-## (5) Set a property in the block or the page you want to connect the area.
+
+![visiblity](./images/3.png)
+
+## (5) Set a [property](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#properties).
 ## (6) Click the area you want.
+## (7) Change the [settings](https://github.com/bsongOT/logseq-plugin-areas/edit/main/README.md#settings) to your liking. \[Optional\]
 
 # About Editor
+
+![editor video](./videos/editor.mp4)
+
 ## Enter the Editor
 Press the edit button as follows:
-## Keyboard Shortcuts
+
+![editor](./images/4.png)
+
+## Edit the data.
+
+![factors of edtior](./images/5.png)
+
+(1) Keyboard Shortcuts
+
 + 1, 2, 3 : change mode
 + Q, W, E, R : change tool
-+ Shift : use a hand-tool
++ Ctrl + drag : copy area or shape \[select mode\]
 + Ctrl + S : save
 + Ctrl + Z : undo
 + Ctrl + Y : redo
 + Esc : cancel
-## Mouse
-+ left : drag point or select a piece in the hierarchy.
-+ right : delete a piece in canvas
+
+(2) Mouse
+
++ left : drag or select a piece in canvas.
 + wheel : zoom in & zoom out
+
+# Settings
+
+![settings](./images/6.png)
+> `⋯` > `Plugins` > `Areas` > `⚙️` > `Open settings`
+
++ strokesWidth : Width of strokes surrounding shapes.
++ strokesOutline : Degree to which strokes are emphasized.
++ controlPointRadius : Radius of control points used in the editor.
++ scrollDirection : Direction of enlargement along wheel direction.
 
 # Properties
 + area-block : Conceptually connect a block and an area.
 + area-page : Conceptually connect a page and an area.
 
 # Terms
-+ piece : A word that combines area, shape, and point
-+ area : The largest unit that can be viewed as one
-+ shape : The lump that makes up an area
-+ point : The point that determines the form of shapes
-+ mode : An indicator of what to add or remove
++ piece : A word that combines area, shape, and point.
++ area : The largest unit that can be viewed as one.
++ shape : The lump that makes up an area.
++ point : The point that determines the form of shapes.
++ mode : An indicator of what to do.
 + hierarchy : A place for selecting changing name and color of areas
 
 # Tips
@@ -60,17 +98,24 @@ Press the edit button as follows:
 
 height is optional.
 
-2. if you want to change the thickness of the line, try this:
-
-> `⋯` > `Plugins` > `Areas` > `⚙️` > `Open settings`
-
 # Notes
 1. When you want to add a piece.
 + To add a shape, select an area.
 + To add a point, select an shape.
 2. Don't cancel it carelessly. No additional warnings are issued when attempting to cancel.
 
-# Examples \[Will Be Added\]
+# Examples
+1. exercise according to body parts
+
+![exercise](./images/exercise.gif)
+
+2. solving a geometry problem
+
+![geometry](./images/geometry.gif)
+
+3. logical elements
+
+![logic](./images/logic.gif)
 
 # Sources
 <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Pixel perfect - Flaticon</a>
