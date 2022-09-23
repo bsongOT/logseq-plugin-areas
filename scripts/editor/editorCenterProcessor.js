@@ -39,7 +39,7 @@ class EditorCenterProcessor{
         this.#workflow = new Workflow();
     }
     report(_type, _feature){
-        console.log(`${_feature}`);
+        //console.log(`${_feature}`);
 
         if (_feature.isWork) {
             if (this.#workflow.doWork(this.#commands[_type], _feature)) DER.render("doWork");
@@ -216,7 +216,7 @@ class EditorCenterProcessor{
             case "done":
                 const change = ADM.ask("delete", _deleteFeat);
                 if (!change) return false;
-                if (this.selection.index[_deleteFeat.kind] >= 0)
+                if (_deleteFeat.kind !== "point" && this.selection.index[_deleteFeat.kind] >= 0)
                     this.selection.index[_deleteFeat.kind] -= Number(change.index[_deleteFeat.kind] <= this.selection.index[_deleteFeat.kind]);
                 DER.render("delete", change);
                 return true;

@@ -105,7 +105,7 @@ class CanvasDrawer
 
         const areasPoints = _areas.map(a => a.toArray());
         let scope = areasPoints[_selection.index.area];
-        if (_selection.index.shape && (_selection.index.shape !== -1)) scope = scope[_selection.index.shape];
+        if (!isNaN(_selection.index.shape) && (_selection.index.shape !== -1)) scope = scope[_selection.index.shape];
         this.#drawPoints(scope.flat());
     }
     #drawBackground(){
@@ -143,15 +143,15 @@ class CanvasDrawer
             for (let i = 0; i < this.muts.length; i++){
                 const m = this.muts[i];
                 if (m.kind === "point") continue;
-                const points = (()=>{
-                    if (m.kind === "shape")
-                        return m.piece.points.map(a=>toCanvasPos(a, this.zoomScale, this.viewOffset));
-                    else if (m.kind === "area")
-                        return m.piece.shapes
-                                .map(a=>a.points).flat()
-                                .map(a=>toCanvasPos(a, this.zoomScale, this.viewOffset));
-                })();
-                this.#drawPolygon(points, false);
+                else if (m.kind === "shape"){
+                    const points = m.piece.points.map(a=>toCanvasPos(a, this.zoomScale, this.viewOffset));
+                    this.#drawPolygon(points, false);
+                }
+                else if (m.kind === "area"){
+                    const pointArrs = m.piece.shapes.map(a => 
+                        a.points.map(p => toCanvasPos(p, this.zoomScale, this.viewOffset)));
+                    pointArrs.forEach(arr => this.#drawPolygon(arr, false));
+                }
             }
         }
         for (let i = 0; i < _areas.length; i++){

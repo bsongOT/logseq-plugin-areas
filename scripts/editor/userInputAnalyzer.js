@@ -241,7 +241,9 @@ class UserInputAnalyzer{
                 break;
             }
             case "done": 
-                return ECP.report("delete", new Delete("done", this.target.index, ECP.mode, true));
+                ECP.report("delete", new Delete("done", this.target.index, ECP.mode, true));
+                this.target = undefined;
+                return;
         }
     }
     #analyzeMoveView = (m, _state) => {

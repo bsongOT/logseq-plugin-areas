@@ -166,20 +166,34 @@ class DOMElementRenderer{
                 }
                 case "shape": switch(_change.state){
                     case "expect":
-                        const shape = ADM.areas[_change.index.area].shapes[_change.index.shape];
-                        ADM.areas[_change.index.area].shapes.splice(_change.index.shape, 1);
+                        const shapes = ADM.areas[_change.index.area].shapes;
+                        const shape = shapes[_change.index.shape];
+                        shapes.splice(_change.index.shape, 1);
                         this.CD.drawWithFloats(ADM.areas, ECP.selection, {
                             kind: "shape",
                             index: _change.index,
                             piece: shape
                         });
-                        return ADM.areas[_change.index.area].shapes.splice(_change.index.shape, 0, shape);
+                        return shapes.splice(_change.index.shape, 0, shape);
                     case "done":
                         this.get(accL(), "shapesMenu").children[_change.index.shape].remove();
                         return this.CD.draw(ADM.areas, ECP.selection);
                 }                  
-                case "point":
-                    return this.CD.draw(ADM.areas, ECP.selection);
+                case "point": switch(_change.state){
+                    case "expect":
+                        const points = ADM.areas[_change.index.area].shapes[_change.index.shape].points;
+                        const point = points[_change.index.point];
+                        points.splice(_change.index.point, 1);
+                        this.CD.drawWithFloats(ADM.areas, ECP.selection, {
+                            kind: "point",
+                            index: _change.index,
+                            piece: point
+                        });
+                        points.splice(_change.index.point, 0, point);
+                        return;
+                    case "done":
+                        return this.CD.draw(ADM.areas, ECP.selection);
+                }
                 default: return this.CD.draw(ADM.areas, ECP.selection);
             }
             case "select": switch(_change.kind){
@@ -195,7 +209,6 @@ class DOMElementRenderer{
 
                     return this.CD.draw(ADM.areas, ECP.selection);
                 case "shape":
-                    console.log({...ECP.selection.index}, {..._change.index});
                     const item = this.get(accL(), "shapesMenu").children[_change.index.shape];
                     item.classList.toggle("item-active");
                     return this.CD.draw(ADM.areas, ECP.selection);

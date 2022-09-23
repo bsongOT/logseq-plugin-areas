@@ -43,8 +43,6 @@ To see only the area you select, click this:
 
 # About Editor
 
-![editor video](./videos/editor.mp4)
-
 ## Enter the Editor
 Press the edit button as follows:
 
@@ -54,17 +52,52 @@ Press the edit button as follows:
 
 ![factors of edtior](./images/5.png)
 
-(1) Keyboard Shortcuts
+(1) Tools
+
++ select
+    + select (to add, delete, or select inside)
+    ![select](./images/feats/select.gif)
+    
+    + move through drag
+    ![drag](./images/feats/drag.gif)
+    
+    + copy&move
+    ![copy](./images/feats/copy.gif)
+
++ add
+    + area : add a basic area(triangle)
+    ![addArea](./images/feats/addArea.gif)
+    
+    + shape : add a basic shape(triangle) (Required : select area)
+    ![addShape](./images/feats/addShape.gif)
+    
+    + point : add a point (Required : select shape)
+    ![addPoint](./images/feats/addPoint.gif)
+
++ delete
+    + area : delete an area through click
+    ![deleteArea](./images/feats/deleteArea.gif)
+
+    + shape : delete a shape through click (Required : select area)
+    ![deleteShape](./images/feats/deleteShape.gif)
+
+    + point : delete a point through click (Required : select shape)
+    ![deletePoint](./images/feats/deletePoint.gif)
+
++ hand : move the view point
+![hand](./images/feats/hand.gif)
+
+(2) Keyboard Shortcuts
 
 + 1, 2, 3 : change mode
 + Q, W, E, R : change tool
-+ Ctrl + drag : copy area or shape \[select mode\]
++ Ctrl + drag : copy area or shape \[select tool\]
 + Ctrl + S : save
 + Ctrl + Z : undo
 + Ctrl + Y : redo
 + Esc : cancel
 
-(2) Mouse
+(3) Mouse
 
 + left : drag or select a piece in canvas.
 + wheel : zoom in & zoom out
@@ -91,7 +124,7 @@ Press the edit button as follows:
 + mode : An indicator of what to do.
 + hierarchy : A place for selecting changing name and color of areas
 
-# Tips
+# Syntax
 1. if you want to resize image in the area block, try this in block:
 
 > `{{renderer :areas-blabla, path}}` → `{{renderer :areas-blabla, path, <width>, <height>}}`
@@ -99,10 +132,7 @@ Press the edit button as follows:
 height is optional.
 
 # Notes
-1. When you want to add a piece.
-+ To add a shape, select an area.
-+ To add a point, select an shape.
-2. Don't cancel it carelessly. No additional warnings are issued when attempting to cancel.
+> Don't cancel it carelessly. No additional warnings are issued when attempting to cancel.
 
 # Examples
 1. exercise according to body parts
@@ -113,7 +143,7 @@ height is optional.
 
 ![geometry](./images/geometry.gif)
 
-3. logical elements
+3. k-map
 
 ![logic](./images/logic.gif)
 
