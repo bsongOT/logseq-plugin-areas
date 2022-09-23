@@ -95,6 +95,7 @@ function main () {
                 },
                 async selectArea(_triggerInfo)
                 {
+                    console.log(_triggerInfo);
                     const areaName = await _triggerInfo.id.split("-")[1];
                     const selected = `${_triggerInfo.id.split("-")[0]}-${areaName}`;
                     const selBlock = await logseq.Editor.getBlock(_triggerInfo.dataset.areaBlock);

@@ -45,7 +45,7 @@ const css = (_uiid, _stroke, _strokeLine, _imgWidth, _imgHeight, _visiblity, _se
     }`
     +
     (_selected !== "" ?
-    `#${_selected}
+    `svg[id='${_selected}']
     {
         opacity: 1;
     }` : "")
