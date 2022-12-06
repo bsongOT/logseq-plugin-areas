@@ -1,13 +1,20 @@
 {
   "name": "areas",
-  "version": "v0.1.1",
+  "description": "Make us be able to describe parts of a picture.  Will be useful when you note concepts that contain a lot of visual things.",
+  "author": "bsongOT",
+  "main": "dist/index.html",
   "logseq": {
     "title": "Areas",
     "main": "index.html",
     "id": "logseq-areas",
     "icon": "icons/icon.png"
   },
-  "dependencies": {
-    "@logseq/libs": "0.0.1-alpha.35"
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build --no-source-maps src/index.html --public-url ./"
+  },
+  "devDependencies": {
+    "parcel": "latest",
+    "@logseq/libs": "latest"
   }
 }
