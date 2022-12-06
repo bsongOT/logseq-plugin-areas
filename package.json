@@ -11,10 +11,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "parcel build --no-source-maps src/index.html --public-url ./"
+    "build": "parcel build --no-source-maps index.html --public-url ./"
   },
   "devDependencies": {
     "parcel": "latest",
     "@logseq/libs": "latest"
+  },
+  "targets": {
+    "main": false
   }
 }
