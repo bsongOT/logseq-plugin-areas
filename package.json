@@ -5,9 +5,8 @@
   "main": "dist/index.html",
   "logseq": {
     "title": "Areas",
-    "main": "index.html",
     "id": "logseq-areas",
-    "icon": "icons/icon.png"
+    "icon": "icon.png"
   },
   "license": "MIT",
   "scripts": {
