@@ -7,7 +7,7 @@ Please see below for details.
 
 # Demo
 
-![demo](./images/demo.gif)
+![demo](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/demo.gif)
 
 # How-tos
 ## (1) Install the Areas Plugin.
@@ -21,21 +21,21 @@ Through Market Place \[Not Available Yet\]
 
 Through `Load unpacked plugin`
 
-![load](./images/1.png)
+![load](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/1.png)
 
 ## (2) Register an Area Block
 1. Put a picture in a block.
 2. Open block context menu.
 3. Click `Picture to Areas`.
 
-![register](./images/2.png)
+![register](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/2.png)
 
 ## (3) Edit Areas as You Wish.
 Refer to [About Editor](#about-editor)
 ## (4) Click a Visiblity Button. \[Optional\]
 To see only the area you select, click this:
 
-![visiblity](./images/3.png)
+![visiblity](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/3.png)
 
 ## (5) Set a [property](#properties).
 ## (6) Click the area you want.
@@ -46,46 +46,46 @@ To see only the area you select, click this:
 ## Enter the Editor
 Press the edit button as follows:
 
-![editor](./images/4.png)
+![editor](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/4.png)
 
 ## Edit the data.
 
-![factors of edtior](./images/5.png)
+![factors of edtior](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/5.png)
 
 (1) Tools
 
 + select
     + select (to add, delete, or select inside)
-    ![select](./images/feats/select.gif)
+    ![select](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/select.gif)
     
     + move through drag
-    ![drag](./images/feats/drag.gif)
+    ![drag](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/drag.gif)
     
     + copy&move
-    ![copy](./images/feats/copy.gif)
+    ![copy](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/copy.gif)
 
 + add
     + area : add a basic area(triangle)
-    ![addArea](./images/feats/addArea.gif)
+    ![addArea](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/addArea.gif)
     
     + shape : add a basic shape(triangle) (Required : select area)
-    ![addShape](./images/feats/addShape.gif)
+    ![addShape](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/addShape.gif)
     
     + point : add a point (Required : select shape)
-    ![addPoint](./images/feats/addPoint.gif)
+    ![addPoint](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/addPoint.gif)
 
 + delete
     + area : delete an area through click
-    ![deleteArea](./images/feats/deleteArea.gif)
+    ![deleteArea](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/deleteArea.gif)
 
     + shape : delete a shape through click (Required : select area)
-    ![deleteShape](./images/feats/deleteShape.gif)
+    ![deleteShape](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/deleteShape.gif)
 
     + point : delete a point through click (Required : select shape)
-    ![deletePoint](./images/feats/deletePoint.gif)
+    ![deletePoint](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/deletePoint.gif)
 
 + hand : move the view point
-![hand](./images/feats/hand.gif)
+![hand](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/feats/hand.gif)
 
 (2) Keyboard Shortcuts
 
@@ -104,7 +104,7 @@ Press the edit button as follows:
 
 # Settings
 
-![settings](./images/6.png)
+![settings](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/6.png)
 > `⋯` > `Plugins` > `Areas` > `⚙️` > `Open settings`
 
 + strokesWidth : Width of strokes surrounding shapes.
@@ -137,15 +137,15 @@ height is optional.
 # Examples
 1. exercise according to body parts
 
-![exercise](./images/exercise.gif)
+![exercise](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/exercise.gif)
 
 2. solving a geometry problem
 
-![geometry](./images/geometry.gif)
+![geometry](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/geometry.gif)
 
 3. k-map
 
-![logic](./images/logic.gif)
+![logic](https://raw.githubusercontent.com/bsongOT/logseq-plugin-areas/main/images/logic.gif)
 
 # Sources
 <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Pixel perfect - Flaticon</a>
